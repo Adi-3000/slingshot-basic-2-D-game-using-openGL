@@ -1,0 +1,3 @@
+C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\x64\Debug\slingshot.vcxproj.CopyComplete
+C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\x64\Debug\slingshot.exe
+C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\x64\Debug\freeglutd.dll
