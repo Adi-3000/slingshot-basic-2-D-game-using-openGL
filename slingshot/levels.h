@@ -5,14 +5,17 @@
 #include <stdio.h>
 #include <vector>
 #include "enemy.h"
+#include "obstacles.h"
+#include "newgame.h"
 #define wire1 150.0
 #define wire2 100.0
-
+#define wire3 50.0
 class levels
 {
 public:
-	int lvl,chance,speed;
+	int lvl,chance,speed,wire;
 	std::vector<enemy>enemylist;
+	std::vector<obstacles>oblist;
 	levels();
 	void loadlevels();
 	void lvl1();
@@ -25,5 +28,8 @@ public:
 	void lvl8();
 	void lvl9();
 	void lvl10();
+	void lvl11();
+	void lvl12();
+	void lvl13();
 };
 

@@ -123,6 +123,7 @@ void newgame::gameover() {
 
 }
 void newgame::background() {
+	//wires = wire;
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();
@@ -165,24 +166,26 @@ void newgame::background() {
 
 	//WIRE1
 	glColor3f(0, 0, 0);
+	for (int i = 0, ypos = 150.0; i < wires; i++, ypos -= 50.0) {
+
 	glLineWidth(3.0);
 	glBegin(GL_LINES);
-	glVertex2d(-265, wire1);
-	glVertex2d(265, wire1);
+	glVertex2d(-265, ypos);
+	glVertex2d(265, ypos);
 	glEnd();
+	}
 	//WIRE2
-	glColor3f(0, 0, 0);
-	glLineWidth(3.0);
-	glBegin(GL_LINES);
-	glVertex2d(-265, wire2);
-	glVertex2d(265, wire2);
-	glEnd();
+	
 
 	glDisable(GL_POLYGON_SMOOTH);
 	glHint(GL_POLYGON_SMOOTH_HINT, GL_DONT_CARE);
 }
 void newgame::player(int x) {
 	xpos = x;
+	sr = x + 20;
+	sl = x - 20;
+
+
 	glLoadIdentity();
 	glTranslatef(xpos, -220.0, 0.0);
 	glBegin(GL_POLYGON);
@@ -218,4 +221,14 @@ void newgame::player(int x) {
 	glVertex2d(-8, 0);
 	glEnd();
 	//END OF SLINGSHOT
+}
+void newgame::hitcheck(stone &astone) {
+	if (astone.state == -1) {
+	if (astone.st >= sb && astone.sb <= st && astone.sl <= sr && astone.sr >= sl)
+	{
+		hit = true;
+		astone.remove = true;
+		std::cout << "*****player hit****\n";
+	}
+	}
 }

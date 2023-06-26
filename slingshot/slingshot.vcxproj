@@ -130,6 +130,7 @@
     <ClCompile Include="newgame.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="levels.cpp" />
+    <ClCompile Include="obstacles.cpp" />
     <ClCompile Include="slingshot.cpp" />
     <ClCompile Include="stone.cpp" />
   </ItemGroup>
@@ -137,6 +138,7 @@
     <ClInclude Include="levels.h" />
     <ClInclude Include="newgame.h" />
     <ClInclude Include="enemy.h" />
+    <ClInclude Include="obstacles.h" />
     <ClInclude Include="stone.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

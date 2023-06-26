@@ -12,6 +12,7 @@
 #include "enemy.h"
 #include "newgame.h"
 #include "levels.h"
+#include "obstacles.h"
 using namespace std;
 
 #define WINDOW_WIDTH  600
@@ -26,18 +27,13 @@ float xpos = 0, ypos = 0, stone_x = 0;
 int state = 0;
 //stone
 vector<stone> stonelist;
-//vector<stone>::iterator it;
  //enemy
 vector<enemy> enemylist;
-//vector<enemy>::iterator en;
-//for  text
-//
+//obstacles
+vector<obstacles> oblist;
+//initialisation
 levels lv;
 newgame game;
-
-
-
-
 void life() {
 //displaying chances
 	glLoadIdentity();
@@ -93,20 +89,31 @@ void display()
 
 			if (!enemylist.empty() && game.chance == 0 && stonelist.empty())
 				game.gameover();
-
+	//for displaying enemy
 	for (enemy &anenemy:enemylist) {
 		anenemy.render(); 
-		anenemy.move();
-		for (int j = stonelist.size() - 1; j >= 0; j--) {
+	}
+	for (obstacles& anob : oblist) {
+		anob.render();
+		
+	}
+	for (int j = stonelist.size() - 1; j >= 0; j--) {
+		for (enemy& anenemy : enemylist) {
 			anenemy.hitcheck(stonelist[j]);
 		}
+		for (obstacles& anob : oblist) {
+			anob.hitcheck(stonelist[j]);
+		}
+		//ob.hitcheck(stonelist[j]);
+		game.hitcheck(stonelist[j]);
+
 	}
 	for (stone &bullet : stonelist) {
 		bullet.render();
 		bullet.shoot();
 		bullet.sremove();
-
 	}
+	//ob.render();
 	life();
 	level();
 	scores();
@@ -116,10 +123,9 @@ void display()
 		game.pause();
 	}
 	glutSwapBuffers();
-	//for displaying enemy
+	
 }
 
-//for contuinity
 
 void fire(){
 	//for clearing list of useless stones
@@ -127,6 +133,7 @@ void fire(){
 	auto it = stonelist.begin();
 	for (it; it != stonelist.end();it++ ) {
 		stone temp = *it;
+		cout << "state=" << temp.state << "\n";
 		if (temp.remove) {
 			stonelist.erase(it);
 			if (stonelist.empty())
@@ -147,6 +154,10 @@ void fire(){
 			else
 				en = enemylist.begin();
 		}
+	}
+	if (game.hit) {
+		game.chance++;
+		game.hit = false;
 	}
 }
 
@@ -195,7 +206,7 @@ void onKeyDown(unsigned char key, int x, int y)
 	case 's':
 	case 'S':
 		if (enemylist.empty()) {
-			if (lv.lvl == 5)
+			if (lv.lvl == 13)
 				lv.lvl = 0;
 			lv.lvl++;
 		}
@@ -204,6 +215,8 @@ void onKeyDown(unsigned char key, int x, int y)
 		game.score = 0;
 		enemylist = lv.enemylist;
 		game.chance = lv.chance;
+		game.wires = lv.wire;
+		oblist = lv.oblist;
 		state = 1;
 		break;
 	
@@ -223,7 +236,7 @@ void onResize(int w, int h)
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(-w/3.0 , w/3.0 , -h/3.0 , h/3.0 );
+	gluOrtho2D(-w/2.0 , w/2.0 , -h/2.0 , h/2.0 );
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }

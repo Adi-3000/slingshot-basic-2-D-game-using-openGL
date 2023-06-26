@@ -3,7 +3,7 @@
 
 stone::stone(int xpos) {
 	x = xpos;
-	speed = 6.0;
+	speed = 9.0;
 	sr =x+2;
 	sl =x-2;
 	st = -218 + y;
@@ -27,17 +27,24 @@ void stone::render() {
 		glVertex2d(ori_x + x, ori_y + y);
 	}
 	glEnd();
+
 }
 void stone::shoot() {
-	
+	if (state == 1) {
 	 y =y+ speed;	
 	 st +=speed ;
 	 sb += speed;
-	//std::cout << y <<"\n";
+	}
+	else if(state==-1){
+		y = y - speed;
+		st -= speed;
+		sb -= speed;
+	std::cout << "state="<<state << "\n";
+	}
 	
 }
 void stone::sremove() {
-	if (y >= HEIGHT) {
+	if (y >= HEIGHT||y<=-HEIGHT) {
 		remove = true;
 	}
 	//std::cout << "sremove called\n";

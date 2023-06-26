@@ -1,13 +1,9 @@
-﻿  slingshot.cpp
+﻿  levels.cpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\charconv(13): warning STL4038: The contents of <charconv> are available only with C++17 or later.
-C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\newgame.h(8,1): warning C4005: 'HEIGHT': macro redefinition
+C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\newgame.h(9,1): warning C4005: 'HEIGHT': macro redefinition
 C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\stone.h(6,1): message : see previous definition of 'HEIGHT'
-C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\levels.h(8,1): warning C4005: 'wire1': macro redefinition
-C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\newgame.h(9,1): message : see previous definition of 'wire1'
-C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\levels.h(9,1): warning C4005: 'wire2': macro redefinition
-C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\newgame.h(10,1): message : see previous definition of 'wire2'
-C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\slingshot.cpp(90,15): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\slingshot.cpp(100,3): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\slingshot.cpp(161,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\slingshot.cpp(191,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\levels.h(10,1): warning C4005: 'wire1': macro redefinition
+C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\newgame.h(10,1): message : see previous definition of 'wire1'
+C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\levels.h(11,1): warning C4005: 'wire2': macro redefinition
+C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\newgame.h(11,1): message : see previous definition of 'wire2'
   slingshot.vcxproj -> C:\Users\meadi\OneDrive\Desktop\msec\6th Sem\project\slingshot\x64\Debug\slingshot.exe

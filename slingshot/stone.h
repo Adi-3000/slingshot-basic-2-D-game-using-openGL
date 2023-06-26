@@ -7,9 +7,9 @@
 class stone
 {
 	public:
-
 	float x, y=10.0, speed;
 	float sr, sl, st, sb;
+	int state = 1;
 	bool remove=false;
 	void render();
 	void shoot();
